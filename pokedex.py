@@ -14,6 +14,8 @@ def search_pokemon(name):
     print(f"ID: {pokemon['id']}")
     print(f"Base XP: {pokemon['base_experience']}")
 
+    
+
 
 
 
