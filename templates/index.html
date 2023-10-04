@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='output.css') }}">
+    <title>Pokémon Info</title>
+</head>
+<body class="bg-gray-100">
+    <div class="container">
+        <h1>Pokémon Information</h1>
+        <form method="POST">
+            <div>
+                <input type="text" name="pokemon_name" id="pokemon_name" class="border rounded px-2 py-1 focus:outline-none focus:border-blue-500" required>
+                <button type="submit" class="bg-blue-500 text-white px-4 py-1 rounded hover:bg-blue-600">Search</button>
+            </div>
+        </form>
+
+        {% if pokemon_data %}
+        <div class="mt-4 border p-4 rounded bg-white">
+            <img src="{{ pokemon_data.image_url }}" alt="{{ pokemon_data.name }} image" style="display: block; margin: 0 auto; margin-bottom: 4px; width: 150px; height: 150px;">
+            <p class="font-bold text-xl">{{ pokemon_data.name }}</p>
+            <p>ID: {{ pokemon_data.id }}</p>
+            <p>HP: {{ pokemon_data.hp }}</p>
+            <p>Attacks: {{ pokemon_data.attacks | join(', ') }}</p>
+            <p>Held Items: {{ pokemon_data.held_items | join(', ') }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
