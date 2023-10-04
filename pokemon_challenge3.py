@@ -1,3 +1,5 @@
+# pylint: disable=invalid-name
+"""kulit gusto lagi ng docstring"""
 # import requests
 # import sys
 
@@ -15,7 +17,6 @@
 #             print(f"Attacks: {', '.join(attacks)}")
 #         else:
 #             print("HP and Attacks data not found for this Pokémon.")
-        
 #         # Check if 'held_items' is present in the response JSON
 #         if 'held_items' in pokemon:
 #             # Print Held Items
@@ -35,9 +36,9 @@
 
 
 import requests
-import sys
 
 def search_pokemon(name):
+    """search for pokemon"""
     response = requests.get(f"https://pokeapi.co/api/v2/pokemon/{name}/")
 
     pokemon = response.json()
@@ -51,9 +52,8 @@ def search_pokemon(name):
     hp = pokemon.get('stats', [{}])[0].get('base_stat', '')
     print(f"HP: {hp}")
     print(f"HP: {pokemon['stats'][0]['base_stat']}")
-    
 
-    attacks = [] 
+    attacks = []
     for move in pokemon.get('moves', []):
         move_name = move.get('move', {}).get('name', '')
         attacks.append(move_name)
@@ -68,6 +68,7 @@ def search_pokemon(name):
 
 
 def main():
+    """gusto talaga ng docstring"""
     while True:
         pokemon_name = input("Enter a Pokemon name (or 'exit' to quit): ").lower()
 
