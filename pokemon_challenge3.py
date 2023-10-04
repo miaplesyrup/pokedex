@@ -44,27 +44,26 @@ def search_pokemon(name):
     pokemon = response.json()
     print(pokemon)
 
-    name = pokemon.get('name', '').capitalize()
-    print(f"Name: {name}")
+    NAME = pokemon.get('name', '').capitalize()
+    print(f"Name: {NAME}")
     print(f"Name: {pokemon['name'].capitalize()}")
     print(f"ID: {pokemon['id']}")
 
-    hp = pokemon.get('stats', [{}])[0].get('base_stat', '')
-    print(f"HP: {hp}")
+    HP = pokemon.get('stats', [{}])[0].get('base_stat', '')
+    print(f"HP: {HP}")
     print(f"HP: {pokemon['stats'][0]['base_stat']}")
 
-    attacks = []
+    ATTACKS = []
     for move in pokemon.get('moves', []):
         move_name = move.get('move', {}).get('name', '')
-        attacks.append(move_name)
-    print(f"Attacks: {', '.join(attacks)}")
+        ATTACKS.append(move_name)
+    print(f"Attacks: {', '.join(ATTACKS)}")
 
     held_items = []
     for item in pokemon.get('held_items', []):
         item_name = item.get('item', {}).get('name', '')
         held_items.append(item_name)
     print(f"Held items: {', '.join(held_items)}")
-
 
 
 def main():
